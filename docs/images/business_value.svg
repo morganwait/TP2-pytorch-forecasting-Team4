@@ -1,0 +1,46 @@
+<svg viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <rect width="900" height="220" fill="#f8f7f4" rx="12"/>
+  <text x="450" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e3a5f">Why Forecasting Accuracy Is a Competitive Advantage</text>
+
+  <!-- Card 1: Supply Chain -->
+  <rect x="30"  y="50" width="160" height="140" rx="10" fill="white" stroke="#e7e5e4" stroke-width="1.5"/>
+  <text x="110" y="80"  text-anchor="middle" font-size="22">📦</text>
+  <text x="110" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f">Supply Chain</text>
+  <text x="110" y="120" text-anchor="middle" font-size="10" fill="#78716c">Demand planning</text>
+  <text x="110" y="135" text-anchor="middle" font-size="10" fill="#78716c">reduces stockouts</text>
+  <text x="110" y="155" text-anchor="middle" font-size="10" fill="#2563eb">→ ARIMA / LSTM</text>
+
+  <!-- Card 2: Finance -->
+  <rect x="210" y="50" width="160" height="140" rx="10" fill="white" stroke="#e7e5e4" stroke-width="1.5"/>
+  <text x="290" y="80"  text-anchor="middle" font-size="22">💰</text>
+  <text x="290" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f">Finance</text>
+  <text x="290" y="120" text-anchor="middle" font-size="10" fill="#78716c">Portfolio risk</text>
+  <text x="290" y="135" text-anchor="middle" font-size="10" fill="#78716c">management</text>
+  <text x="290" y="155" text-anchor="middle" font-size="10" fill="#2563eb">→ GRU / ARIMA</text>
+
+  <!-- Card 3: Streaming -->
+  <rect x="390" y="50" width="160" height="140" rx="10" fill="white" stroke="#e7e5e4" stroke-width="1.5"/>
+  <text x="470" y="80"  text-anchor="middle" font-size="22">📡</text>
+  <text x="470" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f">Streaming</text>
+  <text x="470" y="120" text-anchor="middle" font-size="10" fill="#78716c">Subscriber growth</text>
+  <text x="470" y="135" text-anchor="middle" font-size="10" fill="#78716c">forecasting</text>
+  <text x="470" y="155" text-anchor="middle" font-size="10" fill="#2563eb">→ ARIMA</text>
+
+  <!-- Card 4: Energy -->
+  <rect x="570" y="50" width="160" height="140" rx="10" fill="white" stroke="#e7e5e4" stroke-width="1.5"/>
+  <text x="650" y="80"  text-anchor="middle" font-size="22">⚡</text>
+  <text x="650" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f">Energy</text>
+  <text x="650" y="120" text-anchor="middle" font-size="10" fill="#78716c">Load forecasting</text>
+  <text x="650" y="135" text-anchor="middle" font-size="10" fill="#78716c">cost optimization</text>
+  <text x="650" y="155" text-anchor="middle" font-size="10" fill="#2563eb">→ TFT / LSTM</text>
+
+  <!-- Card 5: Retail -->
+  <rect x="750" y="50" width="120" height="140" rx="10" fill="white" stroke="#e7e5e4" stroke-width="1.5"/>
+  <text x="810" y="80"  text-anchor="middle" font-size="22">🛒</text>
+  <text x="810" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f">Retail</text>
+  <text x="810" y="120" text-anchor="middle" font-size="10" fill="#78716c">Sales &amp; pricing</text>
+  <text x="810" y="135" text-anchor="middle" font-size="10" fill="#78716c">optimization</text>
+  <text x="810" y="155" text-anchor="middle" font-size="10" fill="#2563eb">→ TFT</text>
+
+  <text x="450" y="210" text-anchor="middle" font-size="10" fill="#78716c" font-style="italic">Model recommendations derived from benchmark results in this study</text>
+</svg>

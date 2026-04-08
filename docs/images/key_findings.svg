@@ -1,0 +1,40 @@
+<svg viewBox="0 0 900 180" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <rect width="900" height="180" fill="#f8f7f4" rx="12"/>
+  <text x="450" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e3a5f">Key Findings at a Glance</text>
+
+  <!-- Finding 1 -->
+  <rect x="20" y="45" width="200" height="115" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="120" y="68" text-anchor="middle" font-size="24" font-weight="bold" fill="#2563eb">01</text>
+  <text x="120" y="88" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a5f">No Universal Winner</text>
+  <text x="120" y="105" text-anchor="middle" font-size="9" fill="#78716c">Best model varies by</text>
+  <text x="120" y="118" text-anchor="middle" font-size="9" fill="#78716c">data structure &amp; horizon.</text>
+  <text x="120" y="135" text-anchor="middle" font-size="9" fill="#78716c">ARIMA wins 5/15 scenarios;</text>
+  <text x="120" y="148" text-anchor="middle" font-size="9" fill="#78716c">TFT wins 5/15 scenarios.</text>
+
+  <!-- Finding 2 -->
+  <rect x="235" y="45" width="200" height="115" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+  <text x="335" y="68" text-anchor="middle" font-size="24" font-weight="bold" fill="#15803d">02</text>
+  <text x="335" y="88" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a5f">ARIMA Beats DL on BTC</text>
+  <text x="335" y="105" text-anchor="middle" font-size="9" fill="#78716c">ARIMA outperformed every</text>
+  <text x="335" y="118" text-anchor="middle" font-size="9" fill="#78716c">neural network on Bitcoin</text>
+  <text x="335" y="135" text-anchor="middle" font-size="9" fill="#78716c">at medium &amp; long horizons</text>
+  <text x="335" y="148" text-anchor="middle" font-size="9" fill="#78716c">by up to 17 MAPE points.</text>
+
+  <!-- Finding 3 -->
+  <rect x="450" y="45" width="200" height="115" rx="10" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+  <text x="550" y="68" text-anchor="middle" font-size="24" font-weight="bold" fill="#c2410c">03</text>
+  <text x="550" y="88" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a5f">Horizon Matters Most</text>
+  <text x="550" y="105" text-anchor="middle" font-size="9" fill="#78716c">RNN/LSTM/GRU on Netflix</text>
+  <text x="550" y="118" text-anchor="middle" font-size="9" fill="#78716c">surged from ~4% MAPE</text>
+  <text x="550" y="135" text-anchor="middle" font-size="9" fill="#78716c">at short horizon to 32%+</text>
+  <text x="550" y="148" text-anchor="middle" font-size="9" fill="#78716c">at long horizon.</text>
+
+  <!-- Finding 4 -->
+  <rect x="665" y="45" width="215" height="115" rx="10" fill="#fdf4ff" stroke="#e9d5ff" stroke-width="1.5"/>
+  <text x="772" y="68" text-anchor="middle" font-size="24" font-weight="bold" fill="#7c3aed">04</text>
+  <text x="772" y="88" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a5f">Data Structure Decides</text>
+  <text x="772" y="105" text-anchor="middle" font-size="9" fill="#78716c">Volatility regime &amp; horizon</text>
+  <text x="772" y="118" text-anchor="middle" font-size="9" fill="#78716c">are the primary model</text>
+  <text x="772" y="135" text-anchor="middle" font-size="9" fill="#78716c">selection criteria — not</text>
+  <text x="772" y="148" text-anchor="middle" font-size="9" fill="#78716c">architectural novelty.</text>
+</svg>

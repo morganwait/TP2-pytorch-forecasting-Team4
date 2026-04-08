@@ -1,0 +1,111 @@
+<svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <rect width="900" height="320" fill="#f8f7f4" rx="12"/>
+  <text x="450" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e3a5f">MAPE (%) by Model — Medium Horizon Across All Datasets</text>
+  <text x="450" y="46" text-anchor="middle" font-size="11" fill="#78716c">Lower is better · Medium horizon (8 steps ahead)</text>
+
+  <!-- Y-axis label -->
+  <text x="18" y="185" text-anchor="middle" font-size="11" fill="#78716c" transform="rotate(-90,18,185)">MAPE (%)</text>
+
+  <!-- Grid lines -->
+  <line x1="70" y1="65"  x2="870" y2="65"  stroke="#e7e5e4" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="70" y1="105" x2="870" y2="105" stroke="#e7e5e4" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="70" y1="145" x2="870" y2="145" stroke="#e7e5e4" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="70" y1="185" x2="870" y2="185" stroke="#e7e5e4" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="70" y1="225" x2="870" y2="225" stroke="#e7e5e4" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="70" y1="265" x2="870" y2="265" stroke="#e7e5e4" stroke-width="1" stroke-dasharray="4"/>
+
+  <!-- Y labels -->
+  <text x="62" y="68"  text-anchor="end" font-size="10" fill="#78716c">30%</text>
+  <text x="62" y="108" text-anchor="end" font-size="10" fill="#78716c">25%</text>
+  <text x="62" y="148" text-anchor="end" font-size="10" fill="#78716c">20%</text>
+  <text x="62" y="188" text-anchor="end" font-size="10" fill="#78716c">15%</text>
+  <text x="62" y="228" text-anchor="end" font-size="10" fill="#78716c">10%</text>
+  <text x="62" y="268" text-anchor="end" font-size="10" fill="#78716c">5%</text>
+
+  <!-- Baseline at 0 -->
+  <line x1="70" y1="285" x2="870" y2="285" stroke="#292524" stroke-width="1.5"/>
+
+  <!-- Scale: 285 = 0%, each 1% = 8px, so 30% = 240px above baseline -->
+  <!-- Netflix bars (x=85) -->
+  <text x="165" y="305" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a5f">Netflix</text>
+  <!-- Naive: 10.32% = 82.6px -->
+  <rect x="85"  y="202" width="18" height="83" fill="#94a3b8" rx="2"/>
+  <!-- ARIMA: 2.52% = 20.2px -->
+  <rect x="106" y="265" width="18" height="20" fill="#2563eb" rx="2"/>
+  <!-- RNN: 5.13% -->
+  <rect x="127" y="244" width="18" height="41" fill="#f97316" rx="2"/>
+  <!-- LSTM: 17.30% -->
+  <rect x="148" y="146" width="18" height="139" fill="#8b5cf6" rx="2"/>
+  <!-- GRU: 12.22% -->
+  <rect x="169" y="187" width="18" height="98" fill="#10b981" rx="2"/>
+  <!-- TFT: 12.71% -->
+  <rect x="190" y="183" width="18" height="102" fill="#ef4444" rx="2"/>
+
+  <!-- NVDA bars (x=245) -->
+  <text x="320" y="305" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a5f">NVDA</text>
+  <!-- Naive: 6.95% -->
+  <rect x="245" y="229" width="18" height="56" fill="#94a3b8" rx="2"/>
+  <!-- ARIMA: 11.29% -->
+  <rect x="266" y="195" width="18" height="90" fill="#2563eb" rx="2"/>
+  <!-- RNN: 10.24% -->
+  <rect x="287" y="203" width="18" height="82" fill="#f97316" rx="2"/>
+  <!-- LSTM: 7.96% -->
+  <rect x="308" y="221" width="18" height="64" fill="#8b5cf6" rx="2"/>
+  <!-- GRU: 10.42% -->
+  <rect x="329" y="202" width="18" height="83" fill="#10b981" rx="2"/>
+  <!-- TFT: 7.91% -->
+  <rect x="350" y="222" width="18" height="63" fill="#ef4444" rx="2"/>
+
+  <!-- PG bars (x=400) -->
+  <text x="475" y="305" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a5f">PG</text>
+  <!-- Naive: 2.40% -->
+  <rect x="400" y="266" width="18" height="19" fill="#94a3b8" rx="2"/>
+  <!-- ARIMA: 2.29% -->
+  <rect x="421" y="267" width="18" height="18" fill="#2563eb" rx="2"/>
+  <!-- RNN: 1.73% -->
+  <rect x="442" y="271" width="18" height="14" fill="#f97316" rx="2"/>
+  <!-- LSTM: 1.89% -->
+  <rect x="463" y="270" width="18" height="15" fill="#8b5cf6" rx="2"/>
+  <!-- GRU: 3.68% -->
+  <rect x="484" y="255" width="18" height="30" fill="#10b981" rx="2"/>
+  <!-- TFT: 2.06% -->
+  <rect x="505" y="269" width="18" height="16" fill="#ef4444" rx="2"/>
+
+  <!-- XOM bars (x=555) -->
+  <text x="630" y="305" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a5f">XOM</text>
+  <!-- Naive: 7.00% -->
+  <rect x="555" y="229" width="18" height="56" fill="#94a3b8" rx="2"/>
+  <!-- ARIMA: 6.91% -->
+  <rect x="576" y="230" width="18" height="55" fill="#2563eb" rx="2"/>
+  <!-- RNN: 3.65% -->
+  <rect x="597" y="256" width="18" height="29" fill="#f97316" rx="2"/>
+  <!-- LSTM: 4.81% -->
+  <rect x="618" y="246" width="18" height="39" fill="#8b5cf6" rx="2"/>
+  <!-- GRU: 4.60% -->
+  <rect x="639" y="248" width="18" height="37" fill="#10b981" rx="2"/>
+  <!-- TFT: 4.62% -->
+  <rect x="660" y="248" width="18" height="37" fill="#ef4444" rx="2"/>
+
+  <!-- BTC bars (x=710) -->
+  <text x="785" y="305" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a5f">BTC-USD</text>
+  <!-- Naive: 16.52% -->
+  <rect x="710" y="153" width="18" height="132" fill="#94a3b8" rx="2"/>
+  <!-- ARIMA: 13.51% -->
+  <rect x="731" y="177" width="18" height="108" fill="#2563eb" rx="2"/>
+  <!-- RNN: 28.46% -->
+  <rect x="752" y="58"  width="18" height="227" fill="#f97316" rx="2"/>
+  <!-- LSTM: 28.33% -->
+  <rect x="773" y="59"  width="18" height="226" fill="#8b5cf6" rx="2"/>
+  <!-- GRU: 25.31% -->
+  <rect x="794" y="82"  width="18" height="203" fill="#10b981" rx="2"/>
+  <!-- TFT: 30.49% -->
+  <rect x="815" y="41"  width="18" height="244" fill="#ef4444" rx="2"/>
+
+  <!-- Legend -->
+  <rect x="72"  y="315" width="10" height="10" fill="#94a3b8" rx="2"/><text x="86"  y="324" font-size="10" fill="#292524">Naive</text>
+  <rect x="125" y="315" width="10" height="10" fill="#2563eb" rx="2"/><text x="139" y="324" font-size="10" fill="#292524">ARIMA</text>
+  <rect x="190" y="315" width="10" height="10" fill="#f97316" rx="2"/><text x="204" y="324" font-size="10" fill="#292524">RNN</text>
+  <rect x="240" y="315" width="10" height="10" fill="#8b5cf6" rx="2"/><text x="254" y="324" font-size="10" fill="#292524">LSTM</text>
+  <rect x="295" y="315" width="10" height="10" fill="#10b981" rx="2"/><text x="309" y="324" font-size="10" fill="#292524">GRU</text>
+  <rect x="342" y="315" width="10" height="10" fill="#ef4444" rx="2"/><text x="356" y="324" font-size="10" fill="#292524">TFT</text>
+</svg>

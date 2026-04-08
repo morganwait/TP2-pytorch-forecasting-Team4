@@ -1,0 +1,13 @@
+# Web app build artifacts
+app/node_modules/
+app/.next/
+app/.env.local
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

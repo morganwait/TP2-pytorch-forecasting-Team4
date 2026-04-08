@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f8f7f4;
+  --surface: #ffffff;
+  --navy: #1e3a5f;
+  --navy-light: #2d5282;
+  --ink: #292524;
+  --muted: #78716c;
+  --accent: #1d4ed8;
+  --accent-light: #eff6ff;
+  --border: #e7e5e4;
+  --success: #15803d;
+  --warning: #b45309;
+}
+
+html {
+  background-color: var(--bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-jakarta), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-playfair), serif;
+}
+
+/* Subtle page texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.fade-up-1 { animation-delay: 0.05s; opacity: 0; }
+.fade-up-2 { animation-delay: 0.15s; opacity: 0; }
+.fade-up-3 { animation-delay: 0.25s; opacity: 0; }
+.fade-up-4 { animation-delay: 0.35s; opacity: 0; }
+.fade-up-5 { animation-delay: 0.45s; opacity: 0; }
+
+/* Academic divider */
+.rule-navy {
+  border: none;
+  border-top: 2px solid var(--navy);
+  margin: 0;
+}
+
+/* Prose styles */
+.prose-academic p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+/* Chat bubble */
+.chat-user {
+  background: var(--navy);
+  color: white;
+  border-radius: 18px 18px 4px 18px;
+}
+
+.chat-ai {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 18px 18px 18px 4px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }

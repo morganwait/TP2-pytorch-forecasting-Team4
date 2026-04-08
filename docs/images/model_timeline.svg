@@ -1,0 +1,50 @@
+<svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <!-- Background -->
+  <rect width="900" height="200" fill="#f8f7f4" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e3a5f">50 Years of Time Series Forecasting</text>
+
+  <!-- Timeline line -->
+  <line x1="60" y1="100" x2="840" y2="100" stroke="#d0ccc8" stroke-width="2"/>
+
+  <!-- Classical bracket -->
+  <line x1="60" y1="155" x2="200" y2="155" stroke="#78716c" stroke-width="1.5"/>
+  <text x="130" y="172" text-anchor="middle" font-size="11" fill="#78716c">Classical</text>
+
+  <!-- Deep Learning bracket -->
+  <line x1="270" y1="155" x2="840" y2="155" stroke="#1e3a5f" stroke-width="1.5"/>
+  <text x="555" y="172" text-anchor="middle" font-size="11" fill="#1e3a5f">Deep Learning</text>
+
+  <!-- ARIMA -->
+  <circle cx="130" cy="100" r="18" fill="#2563eb"/>
+  <text x="130" y="105" text-anchor="middle" font-size="10" font-weight="bold" fill="white">ARIMA</text>
+  <text x="130" y="75" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">1970s</text>
+
+  <!-- RNN -->
+  <circle cx="320" cy="100" r="18" fill="#f97316"/>
+  <text x="320" y="105" text-anchor="middle" font-size="10" font-weight="bold" fill="white">RNN</text>
+  <text x="320" y="75" text-anchor="middle" font-size="11" fill="#f97316" font-weight="bold">1986</text>
+
+  <!-- LSTM -->
+  <circle cx="480" cy="100" r="18" fill="#8b5cf6"/>
+  <text x="480" y="105" text-anchor="middle" font-size="10" font-weight="bold" fill="white">LSTM</text>
+  <text x="480" y="75" text-anchor="middle" font-size="11" fill="#8b5cf6" font-weight="bold">1997</text>
+
+  <!-- GRU -->
+  <circle cx="640" cy="100" r="18" fill="#10b981"/>
+  <text x="640" y="105" text-anchor="middle" font-size="10" font-weight="bold" fill="white">GRU</text>
+  <text x="640" y="75" text-anchor="middle" font-size="11" fill="#10b981" font-weight="bold">2014</text>
+
+  <!-- TFT -->
+  <circle cx="800" cy="100" r="18" fill="#ef4444"/>
+  <text x="800" y="105" text-anchor="middle" font-size="10" font-weight="bold" fill="white">TFT</text>
+  <text x="800" y="75" text-anchor="middle" font-size="11" fill="#ef4444" font-weight="bold">2021</text>
+
+  <!-- Subtitles -->
+  <text x="130" y="130" text-anchor="middle" font-size="9" fill="#78716c">Box-Jenkins</text>
+  <text x="320" y="130" text-anchor="middle" font-size="9" fill="#78716c">Rumelhart et al.</text>
+  <text x="480" y="130" text-anchor="middle" font-size="9" fill="#78716c">Hochreiter &amp; Schmidhuber</text>
+  <text x="640" y="130" text-anchor="middle" font-size="9" fill="#78716c">Cho et al.</text>
+  <text x="800" y="130" text-anchor="middle" font-size="9" fill="#78716c">Lim et al.</text>
+</svg>
