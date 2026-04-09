@@ -69,27 +69,66 @@ function RadioGroup({
   );
 }
 
-// Parse the AI response to highlight model names
+// Parse the AI response to highlight model names.
+// Handles all common Gemini output patterns:
+//   **Header:** content       (colon inside bold)
+//   **Header**: content       (colon outside bold)
+//   **Header** content        (no colon at all)
+//   ## Header                 (markdown heading)
+//   * item or - item          (bullet lists)
 function formatResponse(text: string): React.ReactNode {
-  const modelNames: Model[] = ["Naive", "ARIMA", "RNN", "LSTM", "GRU", "TFT"];
   const lines = text.split("\n");
   return lines.map((line, i) => {
-    if (line.startsWith("**") && line.includes(":**")) {
-      const [, rest] = line.split("**", 2);
-      const [header, ...content] = rest.split(":**");
+    const trimmed = line.trim();
+
+    // Empty line → spacer
+    if (!trimmed) return <div key={i} className="mb-2" />;
+
+    // Markdown heading: ## Header or ### Header
+    if (/^#{1,3}\s+/.test(trimmed)) {
+      const heading = trimmed.replace(/^#{1,3}\s+/, "");
       return (
-        <div key={i} className="mb-3">
-          <span className="font-playfair font-bold text-[var(--navy)]">{header}:</span>
-          <span className="font-jakarta text-[var(--ink)]">
-            {content.join(":**")}
+        <div key={i} className="mb-3 mt-4">
+          <span className="font-playfair font-bold text-[var(--navy)] text-base">
+            {heading}
           </span>
         </div>
       );
     }
-    if (!line.trim()) return <div key={i} className="mb-2" />;
+
+    // Bold header line with optional colon in any position:
+    // matches **Anything** or **Anything:** or **Anything**:
+    const headerMatch = trimmed.match(/^\*\*([^*]+?)\*\*:?\s*:?\s*(.*)/);
+    if (headerMatch) {
+      const header = headerMatch[1].replace(/:$/, "").trim();
+      const content = headerMatch[2].trim();
+      return (
+        <div key={i} className="mb-3">
+          <span className="font-playfair font-bold text-[var(--navy)]">
+            {header}:
+          </span>
+          {content && (
+            <span className="font-jakarta text-[var(--ink)]"> {content}</span>
+          )}
+        </div>
+      );
+    }
+
+    // Bullet point: * item or - item
+    if (/^[*-]\s+/.test(trimmed)) {
+      const content = trimmed.replace(/^[*-]\s+/, "");
+      return (
+        <div key={i} className="flex gap-2 mb-1 ml-2">
+          <span className="text-[var(--navy)] font-bold mt-0.5">·</span>
+          <p className="font-jakarta text-[var(--ink)] leading-relaxed">{content}</p>
+        </div>
+      );
+    }
+
+    // Plain text paragraph
     return (
       <p key={i} className="font-jakarta text-[var(--ink)] leading-relaxed mb-1">
-        {line}
+        {trimmed}
       </p>
     );
   });
