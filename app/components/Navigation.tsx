@@ -23,7 +23,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <span className="font-playfair text-lg font-bold tracking-tight">
-              Forecasting<span className="text-blue-300">Benchmark</span>
+              Stochastic<span className="text-blue-300"> Modeling</span>
             </span>
           </Link>
 

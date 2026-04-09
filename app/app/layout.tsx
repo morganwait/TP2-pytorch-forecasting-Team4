@@ -16,9 +16,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Forecasting Benchmark | RNN vs LSTM vs GRU vs TFT",
+  title: "Stochastic Modeling with PyTorch Forecasting",
   description:
-    "An interactive research companion for a multi-domain comparison of classical and deep learning time series forecasting models.",
+    "An interactive research companion for a multi-domain comparison of classical and deep learning time series forecasting models using PyTorch.",
 };
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
         <footer className="relative z-10 border-t border-[var(--border)] py-6 mt-16">
           <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2">
             <p className="text-sm text-[var(--muted)] font-jakarta">
-              A Multi-Domain Forecasting Benchmark · Academic Research Project
+              Stochastic Modeling with PyTorch Forecasting · Academic Research Project
             </p>
             <p className="text-sm text-[var(--muted)] font-jakarta">
               Data: Yahoo Finance · Netflix via jagelves.github.io

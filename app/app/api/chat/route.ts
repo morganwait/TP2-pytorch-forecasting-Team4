@@ -13,15 +13,21 @@ export async function POST(req: NextRequest) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
+      model: "gemini-2.0-flash",
       systemInstruction: CHAT_SYSTEM_PROMPT,
     });
 
-    // Build conversation history for Gemini (excluding the last user message)
-    const history = messages.slice(0, -1).map((m: { role: string; content: string }) => ({
+    // Build conversation history for Gemini (excluding the last user message).
+    // Gemini requires history to start with a 'user' role message, so we
+    // filter out any leading assistant messages (e.g. the initial greeting).
+    const historyRaw = messages.slice(0, -1).map((m: { role: string; content: string }) => ({
       role: m.role === "user" ? "user" : "model",
       parts: [{ text: m.content }],
     }));
+
+    // Drop messages from the front until the first one is from 'user'
+    const firstUserIdx = historyRaw.findIndex((m: { role: string }) => m.role === "user");
+    const history = firstUserIdx === -1 ? [] : historyRaw.slice(firstUserIdx);
 
     const lastMessage = messages[messages.length - 1];
 
