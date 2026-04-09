@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemini-flash-latest",
+      model: "gemini-3.1-flash-lite-preview",
       systemInstruction: CHAT_SYSTEM_PROMPT,
     });
 
