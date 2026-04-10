@@ -154,7 +154,8 @@ The business stakes are real: a model with 30% MAPE at a long horizon is not jus
 
 ### Technical Documentation
 
-19. PyTorch Forecasting. (n.d.). *GRU documentation*. https://pytorch-forecasting.readthedocs.io/en/stable/api/pytorch_forecasting.models.nn.rnn.GRU.html
+19. PyTorch Forecasting. (n.d.). *PyTorch Forecasting documentation*.
+    https://pytorch-forecasting.readthedocs.io/en/stable/models.html
 
 20. Pattanayak, S. (2023). *Building RNN, LSTM and GRU for time series using PyTorch*. Towards Data Science. https://towardsdatascience.com/building-rnn-lstm-and-gru-for-time-series-using-pytorch-a46e5b094e7b
 
