@@ -1,117 +1,39 @@
-# A Multi-Domain Comparison: RNN, LSTM, GRU & TFT
-### Financial Time Series Forecasting Benchmark
+# A Multi-Domain Comparison with Pytorch Forecasting: RNN, LSTM, GRU & TFT
 
 ![Model Timeline](docs/images/model_timeline.svg)
 
 ---
 
-## 🔗 Quick Links
+## Authors
+
+| Name | GitHub |
+|------|--------|
+| *(Nathan Brewer)* | [`Gratedanate`](https://github.com/Gratedanate) |
+| *(Cade Haskins)* | [`Cade26-code`](https://github.com/Cade26-code) |
+| *(Pratham Reddy)* | [`PrathamReddy55`](https://github.com/PrathamReddy55) |
+| *(Morgan Wait)* | [`morganwait`](https://github.com/morganwait) |
+
+---
+
+## Quick Links
 
 | Resource | Link |
 |----------|------|
-| 📓 Notebook (Google Colab) | *(add your Colab link here)* |
-| 🌐 Interactive Web App | *(add your Vercel URL here)* |
+| 📓 Notebook (Google Colab) | [`Project Code`](https://colab.research.google.com/drive/1HjXrNkBwUZ1UVd5D6W5q9e3ZMZ2iHhJk?usp=sharing) |
+| 🌐 Interactive Web App | [`Stochastic Modeling with Pytorch Forecasting`](tp-2-pytorch-forecasting-team4.vercel.app) |
 | 📊 Full Results CSV | [`docs/full_results.csv`](docs/full_results.csv) |
 
 ---
 
-## 📌 Project Scope
+## Project Scope
 
 > *Across time-series with fundamentally different structures — a smooth subscription growth curve (Netflix) and a volatile cross-sectional stock portfolio (NVIDIA, P&G, Exxon, Bitcoin) — how do deep learning sequence models (RNN, LSTM, GRU) and attention-based models (TFT) compare to classical statistical baselines (ARIMA, Naïve) in multi-step forecasting accuracy, and what does this reveal about model selection strategy for business forecasting?*
 
 This project benchmarks **six forecasting models** across **five datasets** and **three forecast horizons** (90 total experiments) to produce data-driven, evidence-backed guidance for model selection in business and financial forecasting contexts.
 
-We will compare two forecasts:
-* Forecasting Netflix Subscribers
-* Forecasting a Cross-sectional stock portfolio
-
-**Models Evaluated:** Naïve · ARIMA · RNN · LSTM · GRU · Temporal Fusion Transformer (TFT)
-
-**Datasets:**
-  * Netflix Quarterly Subscribers (2013–2024)
-  * NVDA · PG · XOM · BTC-USD (2015–2025)
-
-**Horizons:** Short (4 steps) · Medium (8 steps) · Long (12 steps)
-
-**Metrics:** MAE · RMSE · MAPE
-
 ---
 
-## Introduction
-
-Finance is one of the most dynamic and consequential sectors in the global economy, serving as a barometer of economic health and a primary vehicle through which investors allocate capital, manage risk, and generate returns (Boubakari & Jin, 2010). At the heart of sound financial decision-making lies the ability to forecast: to anticipate how asset prices, subscriber bases, and revenue streams will behave over time. When forecasts are accurate, firms optimize inventory, hedge exposure, and allocate resources efficiently. When they are not, the costs compound across every layer of the organization. Despite decades of methodological advancement, financial time series forecasting remains one of the most challenging problems in quantitative analysis, owing to the influence of social, political, and macroeconomic forces that interact in ways no single model fully captures (Challu et al., 2022).
-
-The history of time series forecasting is one of continuous attempts to close that gap. The AutoRegressive Integrated Moving Average (ARIMA) framework, formalized by Box and Jenkins (1970), established the dominant paradigm for several decades. Interpretable and well-suited to stationary data with linear trends, ARIMA became the standard tool of applied econometrics. Its limitations, however, are equally well-documented: the model assumes linearity, struggles with non-stationary and high-volatility data, and offers little capacity to learn complex, hierarchical patterns from large datasets. These constraints motivated the turn toward neural architectures.
-
-The introduction of Recurrent Neural Networks (Rumelhart et al., 1985) marked the first serious attempt to model sequential dependencies through learned representations rather than hand-crafted statistical assumptions. Yet simple RNNs carried a fundamental flaw, the vanishing gradient problem, which caused them to lose information across long sequences. This flaw rendered them unreliable for the kind of extended temporal dependencies that financial data demand. Long Short-Term Memory networks (Hochreiter & Schmidhuber, 1997) addressed this directly by introducing a cell state and three gating mechanisms: input, forget, and output. These introductions enabled the selective retention of long-range information at the cost of greater computational complexity. The Gated Recurrent Unit (Cho et al., 2014) followed as a streamlined alternative, consolidating the LSTM's gate structure into an update gate and a reset gate, reducing parameter count while preserving much of the memory capacity. Empirical evidence has increasingly favored the GRU in financial contexts; a comprehensive cross-continental study of stock market indices and currency exchange rates found that the GRU consistently outperformed both the RNN and LSTM baselines across univariate and multivariate forecasting tasks (Challu et al., 2022).
-
-The most recent turning point came with the Transformer architecture (Vaswani et al., 2017), which allowed a model to simultaneously assess the relevance of every point in a sequence relative to every other, regardless of temporal distance. Building directly on this foundation, the Temporal Fusion Transformer (Lim et al., 2021) adapted multi-head attention specifically for multi-horizon time series forecasting, incorporating variable selection networks, gated residual connections, and interpretable attention weights that reveal which historical timesteps most influenced a given prediction. Critically, while recent Time Series Foundation Models pre-trained on generic datasets have shown promise, the literature cautions that off-the-shelf models underperform strong benchmarks unless pre-trained on domain-specific financial data — underscoring the continued importance of deliberate model selection over passive adoption of the latest architecture (Ansari et al., 2024).
-
-This project contributes to that ongoing conversation by conducting a structured, multi-domain benchmark comparison across six forecasting methods: Naïve, ARIMA, RNN, LSTM, GRU, and TFT. The models will be evaluated against two structurally distinct datasets: Netflix quarterly subscriber counts, representing a smooth and trend-dominant growth series, and a cross-sectional portfolio of four assets: NVIDIA, Procter & Gamble, Exxon, and Bitcoin. These assets were selected to represent high-growth, low-volatility, macro-driven, and high-volatility market regimes respectively. This cross-sectional portfolio selects representative assets from multiple, distinct economic sectors (Tech, Consumer Staples, Energy, and Crypto), and risks at the same point in time. By testing all models simultaneously across these varied domains and at short, medium, and long forecast horizons, this study aims to produce findings that are robust across market conditions rather than artifacts of a single asset class. The central research question guiding this analysis is: *across time-series with fundamentally different structures, how do deep learning sequence models and attention-based architectures compare to classical statistical baselines in multi-step forecasting accuracy, and what does this reveal about model selection strategy for business forecasting?*
-
----
-
-## Definitions and History: ARIMA, RNN, LSTM, GRU, and TFT
-
-### Model Definitions
-
-**ARIMA (AutoRegressive Integrated Moving Average)**: This is a classical statistical model suitable for stationary data and assumes linear trends/seasonality. It is highly interpretable and requires less data but struggles with complex, non-linear patterns and long-term dependencies. (Box and Jenkins, 1970). We will use ARIMA as the Naïve Statistical Baseline.
-
-**RNN (Recurrent Neural Network)**: The foundational sequence model. They use a simple recurrent connection where the hidden state at each time step is a function of the current input and the previous hidden state. Their primary limitation is the inability to effectively capture long-range dependencies because gradients can vanish or explode over many time steps. (Rumelhart et al., 1985).
-
-**LSTM (Long Short-Term Memory)**: An advancement over RNNs designed to solve the vanishing gradient problem. LSTMs introduce a "cell state" and three gating mechanisms (input, forget, and output gates) to selectively remember or forget information over extended sequences. This allows them to model long-term dependencies effectively, but at the cost of higher computational complexity and more parameters. (Hochreiter & Schmidhuber, 1997).
-
-**GRU (Gated Recurrent Unit)**: A simplification of the LSTM, offering a balance between performance and efficiency. GRUs combine the forget and input gates into a single "update gate" and merge the cell state and hidden state. They have fewer parameters and are faster to train than LSTMs while often achieving comparable performance on various tasks. (Cho et al., 2014)
-
-**TFT (Temporal Fusion Transformer)**: A more recent, state-of-the-art architecture based on the Transformer model and designed specifically for multi-horizon time series forecasting. Unlike RNN, LSTM, and GRU which process data sequentially, the TFT uses a global attention mechanism, allowing it to process data in parallel and scale efficiently to large datasets. It also provides interpretability features like variable selection. (Lim et al., 2021)
-
-### Model History Timeline
-
-| Model Type | Introduction | Status in PyTorch |
-| :--- | :---: | :--- |
-| **RNN** | 1980s | Old / Foundation |
-| **LSTM** | 1997 | Established / Mature |
-| **GRU** | 2014 | Established / Mature |
-| **Transformers** | 2017+ | Modern / Standard |
-
----
-
-## Pros and Cons: Model Comparisons
-
-| Parameter | RNN | GRU | LSTM | Temporal Fusion Transformer (TFT) |
-| :--- | :--- | :--- | :--- | :--- |
-| **Long-Term Memory** | Poor; prone to vanishing gradients. | Good; uses gates to manage information flow. | Excellent; uses separate cell state and multiple gates. | Excellent; uses attention mechanisms to link relevant past/future data points. |
-| **Complexity** | Simple, few parameters. | Less complex than LSTM, more than RNN. | More complex than GRU/RNN. | High; incorporates components like variable selection and attention. |
-| **Training Speed** | Fast, but less accurate on complex data. | Faster than LSTMs. | Slower than GRUs due to higher complexity. | Faster than LSTMs/GRUs on large datasets due to parallelization. |
-| **Parallelization** | Limited; strictly sequential processing. | Limited; relies on sequential processing. | Limited; relies on sequential processing. | High; attention mechanism allows parallel processing. |
-
----
-
-## 💼 Why This Matters for Business
-
-![Business Value](docs/images/business_value.svg)
-
-Forecasting is one of the most consequential tasks in modern business. Accurate forecasts help firms optimize inventory, hedge financial exposure, plan infrastructure, and allocate capital efficiently. When forecasts fail, those costs compound across every downstream decision.
-
-Despite decades of innovation — from ARIMA in the 1970s to Transformer-based models in 2021 — no single model has proven universally superior. Practitioners frequently default to the most architecturally complex model available, assuming novelty equals accuracy. This study tests that assumption empirically across structurally different real-world datasets.
-
-The business stakes are real: a model with 30% MAPE at a long horizon is not just academically imprecise — it is operationally dangerous if used to inform staffing, pricing, or capital allocation decisions without appropriate uncertainty disclosure.
-
----
-
-## 👥 Authors
-
-| Name | GitHub |
-|------|--------|
-| *(Team Member 1)* | *(link to GitHub profile)* |
-| *(Team Member 2)* | *(link to GitHub profile)* |
-| *(Team Member 3)* | *(link to GitHub profile)* |
-
-*Add each team member's name and link to their GitHub profile page.*
-
----
-
-## 📋 Project Details
+## Project Details
 
 ### Models Evaluated
 
@@ -146,7 +68,61 @@ The business stakes are real: a model with 30% MAPE at a long horizon is not jus
 - **Medium:** 8 steps ahead
 - **Long:** 12 steps ahead
 
-### Results Summary
+---
+
+## Model History
+
+Finance is one of the most dynamic and consequential sectors in the global economy, serving as a barometer of economic health and a primary vehicle through which investors allocate capital, manage risk, and generate returns (Boubakari & Jin, 2010). At the heart of sound financial decision-making lies the ability to forecast: to anticipate how asset prices, subscriber bases, and revenue streams will behave over time. When forecasts are accurate, firms optimize inventory, hedge exposure, and allocate resources efficiently. When they are not, the costs compound across every layer of the organization. Despite decades of methodological advancement, financial time series forecasting remains one of the most challenging problems in quantitative analysis, owing to the influence of social, political, and macroeconomic forces that interact in ways no single model fully captures (Challu et al., 2022).
+
+The history of time series forecasting is one of continuous attempts to close that gap. The AutoRegressive Integrated Moving Average (ARIMA) framework, formalized by Box and Jenkins (1970), established the dominant paradigm for several decades. Interpretable and well-suited to stationary data with linear trends, ARIMA became the standard tool of applied econometrics. Its limitations, however, are equally well-documented: the model assumes linearity, struggles with non-stationary and high-volatility data, and offers little capacity to learn complex, hierarchical patterns from large datasets. These constraints motivated the turn toward neural architectures.
+
+The introduction of Recurrent Neural Networks (Rumelhart et al., 1985) marked the first serious attempt to model sequential dependencies through learned representations rather than hand-crafted statistical assumptions. Yet simple RNNs carried a fundamental flaw, the vanishing gradient problem, which caused them to lose information across long sequences. This flaw rendered them unreliable for the kind of extended temporal dependencies that financial data demand. Long Short-Term Memory networks (Hochreiter & Schmidhuber, 1997) addressed this directly by introducing a cell state and three gating mechanisms: input, forget, and output. These introductions enabled the selective retention of long-range information at the cost of greater computational complexity. The Gated Recurrent Unit (Cho et al., 2014) followed as a streamlined alternative, consolidating the LSTM's gate structure into an update gate and a reset gate, reducing parameter count while preserving much of the memory capacity. Empirical evidence has increasingly favored the GRU in financial contexts; a comprehensive cross-continental study of stock market indices and currency exchange rates found that the GRU consistently outperformed both the RNN and LSTM baselines across univariate and multivariate forecasting tasks (Challu et al., 2022).
+
+The most recent turning point came with the Transformer architecture (Vaswani et al., 2017), which allowed a model to simultaneously assess the relevance of every point in a sequence relative to every other, regardless of temporal distance. Building directly on this foundation, the Temporal Fusion Transformer (Lim et al., 2021) adapted multi-head attention specifically for multi-horizon time series forecasting, incorporating variable selection networks, gated residual connections, and interpretable attention weights that reveal which historical timesteps most influenced a given prediction. Critically, while recent Time Series Foundation Models pre-trained on generic datasets have shown promise, the literature cautions that off-the-shelf models underperform strong benchmarks unless pre-trained on domain-specific financial data — underscoring the continued importance of deliberate model selection over passive adoption of the latest architecture (Ansari et al., 2024).
+
+This project contributes to that ongoing conversation by conducting a structured, multi-domain benchmark comparison across six forecasting methods: Naïve, ARIMA, RNN, LSTM, GRU, and TFT. The models will be evaluated against two structurally distinct datasets: Netflix quarterly subscriber counts, representing a smooth and trend-dominant growth series, and a cross-sectional portfolio of four assets: NVIDIA, Procter & Gamble, Exxon, and Bitcoin. These assets were selected to represent high-growth, low-volatility, macro-driven, and high-volatility market regimes respectively. This cross-sectional portfolio selects representative assets from multiple, distinct economic sectors (Tech, Consumer Staples, Energy, and Crypto), and risks at the same point in time. By testing all models simultaneously across these varied domains and at short, medium, and long forecast horizons, this study aims to produce findings that are robust across market conditions rather than artifacts of a single asset class. The central research question guiding this analysis is: *across time-series with fundamentally different structures, how do deep learning sequence models and attention-based architectures compare to classical statistical baselines in multi-step forecasting accuracy, and what does this reveal about model selection strategy for business forecasting?*
+
+---
+
+## Model Definitions: ARIMA, RNN, LSTM, GRU, and TFT
+
+
+**ARIMA (AutoRegressive Integrated Moving Average)**: This is a classical statistical model suitable for stationary data and assumes linear trends/seasonality. It is highly interpretable and requires less data but struggles with complex, non-linear patterns and long-term dependencies. (Box and Jenkins, 1970). We will use ARIMA as the Naïve Statistical Baseline.
+
+**RNN (Recurrent Neural Network)**: The foundational sequence model. They use a simple recurrent connection where the hidden state at each time step is a function of the current input and the previous hidden state. Their primary limitation is the inability to effectively capture long-range dependencies because gradients can vanish or explode over many time steps. (Rumelhart et al., 1985).
+
+**LSTM (Long Short-Term Memory)**: An advancement over RNNs designed to solve the vanishing gradient problem. LSTMs introduce a "cell state" and three gating mechanisms (input, forget, and output gates) to selectively remember or forget information over extended sequences. This allows them to model long-term dependencies effectively, but at the cost of higher computational complexity and more parameters. (Hochreiter & Schmidhuber, 1997).
+
+**GRU (Gated Recurrent Unit)**: A simplification of the LSTM, offering a balance between performance and efficiency. GRUs combine the forget and input gates into a single "update gate" and merge the cell state and hidden state. They have fewer parameters and are faster to train than LSTMs while often achieving comparable performance on various tasks. (Cho et al., 2014)
+
+**TFT (Temporal Fusion Transformer)**: A more recent, state-of-the-art architecture based on the Transformer model and designed specifically for multi-horizon time series forecasting. Unlike RNN, LSTM, and GRU which process data sequentially, the TFT uses a global attention mechanism, allowing it to process data in parallel and scale efficiently to large datasets. It also provides interpretability features like variable selection. (Lim et al., 2021)
+
+---
+
+## Pros and Cons: Model Comparisons
+
+| Parameter | RNN | GRU | LSTM | Temporal Fusion Transformer (TFT) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Long-Term Memory** | Poor; prone to vanishing gradients. | Good; uses gates to manage information flow. | Excellent; uses separate cell state and multiple gates. | Excellent; uses attention mechanisms to link relevant past/future data points. |
+| **Complexity** | Simple, few parameters. | Less complex than LSTM, more than RNN. | More complex than GRU/RNN. | High; incorporates components like variable selection and attention. |
+| **Training Speed** | Fast, but less accurate on complex data. | Faster than LSTMs. | Slower than GRUs due to higher complexity. | Faster than LSTMs/GRUs on large datasets due to parallelization. |
+| **Parallelization** | Limited; strictly sequential processing. | Limited; relies on sequential processing. | Limited; relies on sequential processing. | High; attention mechanism allows parallel processing. |
+
+---
+
+## Why This Matters for Business
+
+![Business Value](docs/images/business_value.svg)
+
+Forecasting is one of the most consequential tasks in modern business. Accurate forecasts help firms optimize inventory, hedge financial exposure, plan infrastructure, and allocate capital efficiently. When forecasts fail, those costs compound across every downstream decision.
+
+Despite decades of innovation — from ARIMA in the 1970s to Transformer-based models in 2021 — no single model has proven universally superior. Practitioners frequently default to the most architecturally complex model available, assuming novelty equals accuracy. This study tests that assumption empirically across structurally different real-world datasets.
+
+The business stakes are real: a model with 30% MAPE at a long horizon is not just academically imprecise — it is operationally dangerous if used to inform staffing, pricing, or capital allocation decisions without appropriate uncertainty disclosure.
+
+---
+
+## Results Summary
 
 ![MAPE Comparison](docs/images/mape_comparison.svg)
 
@@ -197,7 +173,7 @@ The business stakes are real: a model with 30% MAPE at a long horizon is not jus
 
 ---
 
-## 🔮 What's Next? Future Developments and Concerns
+## What's Next? Future Developments and Concerns
 
 The results of this benchmark point toward several natural extensions, both within this project and across the broader forecasting literature.
 
@@ -212,7 +188,7 @@ An emerging line of research explores whether large language models (LLMs) can c
 
 ---
 
-## 🤖 Responsible AI Considerations
+## Responsible AI Considerations
 
 Deploying forecasting models in financial and business contexts carries responsibilities that extend beyond predictive accuracy.
 
@@ -227,7 +203,7 @@ Integrating these models into automated decision pipelines — algorithmic tradi
 
 ---
 
-## 📚 References
+## References
 
 1. Ansari, A. F., Stella, L., Turkmen, C., Zhang, X., Mercado, P., Shen, H., Shchur, O., Rangapuram, S. S., Arango, S. P., Kapoor, S., Zschiegner, J., Maddix, D. C., Mahoney, M. W., Torkkola, K., Gordon Wilson, A., Bohlke-Schneider, M., & Wang, Y. (2024). Chronos: Learning the language of time series. *arXiv*. https://arxiv.org/abs/2403.07815
 
