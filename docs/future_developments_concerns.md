@@ -1,0 +1,13 @@
+
+# What's Next? Future Developments and Concerns
+
+The results of this benchmark point toward several natural extensions, both within this project and across the broader forecasting literature.
+
+## Foundation Models for Time Series
+The most significant near-term development in forecasting is the emergence of large-scale pretrained models — analogous to GPT in NLP — that can forecast zero-shot without task-specific training. Models such as TimesFM (Das et al., 2024), Moirai (Woo et al., 2024), and Chronos (Ansari et al., 2024) are trained on billions of time series observations and can be applied directly to new datasets. Our benchmark provides a clean set of baselines to test whether these foundation models improve on the ARIMA, GRU, and TFT results reported here, particularly on the high-volatility BTC series where all models struggled beyond 8 steps. As Ansari et al. (2024) caution, however, off-the-shelf foundation models tend to underperform strong task-specific baselines unless fine-tuned on domain-relevant data — a finding our results are broadly consistent with.
+
+## Ensemble and Regime-Switching Methods
+Because no single model dominated across all datasets and horizons — ARIMA outperformed deep learning on BTC at medium and long horizons, while GRU and LSTM led on short-horizon equity forecasting — a logical next step is to combine models rather than select one. Ensemble methods that blend predictions from multiple architectures have consistently outperformed individual models in forecasting competitions such as the M4 and M5 (Makridakis et al., 2020). A regime-switching layer that detects volatility state and routes predictions accordingly (e.g., ARIMA during stable periods, GRU during high-variance regimes) could address the horizon-dependent reversals observed in this study.
+
+## LLM-Augmented Forecasting
+An emerging line of research explores whether large language models (LLMs) can contribute to time series forecasting by encoding contextual knowledge — news sentiment, earnings call transcripts, central bank communications — that purely numerical models cannot access (Jin et al., 2024). While this approach remains experimental and its empirical advantages over strong statistical baselines are not yet firmly established, it represents a meaningful direction for financial forecasting specifically, where narrative context frequently precedes price movement.
