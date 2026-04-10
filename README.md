@@ -76,7 +76,7 @@ This project benchmarks **six forecasting models** across **five datasets** and 
 
 ![Dashboard](docs/images/fig13_executive_dashboard.png)
 
-![Heatmap](docs/images/fig9_heatmaps.png)
+![Heatmap](docs/images/fig9_heatmap.png)
 
 
 
