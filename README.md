@@ -46,7 +46,7 @@ This project benchmarks **six forecasting models** across **five datasets** and 
 | **GRU** | 2014 | Deep Learning | Simplified LSTM with 2 gates; fewer parameters |
 | **TFT** | 2021 | Transformer | Attention-based; multi-horizon; quantile outputs |
 
-*For more information about model histories, definitions, and pros and cons, [`click here`](docs/model_history_definitions_proscons.md)*
+*For more information about model histories, definitions, and pros and cons, [`click here`](docs/model_history_definitions_proscons.md).*
 
 ### Datasets
 
@@ -78,11 +78,11 @@ This project benchmarks **six forecasting models** across **five datasets** and 
 
 ![Heatmap](docs/images/fig9_heatmaps.png)
 
-![Key Findings](docs/images/key_findings.svg)
-
 
 
 ### Key Findings
+
+![Key Findings](docs/images/key_findings.svg)
 
 1. **No single model dominates universally.** ARIMA remains highly competitive on smooth, low-volatility series (Netflix subscriber growth), while deep learning models — especially LSTM and GRU — show advantages on volatile series at short horizons. Notably, ARIMA outperformed all deep learning models on BTC at medium and long horizons, challenging the assumption that neural architectures are superior on high-volatility data.
 
@@ -95,8 +95,9 @@ This project benchmarks **six forecasting models** across **five datasets** and 
 5. **Data structure is the primary model selection criterion.** Practitioners should assess series *volatility*, *length*, and *available covariates* before selecting a model — not default to deep learning due to novelty.
 
 
-*For more information about future developments and concerns, [`click here`](docs/future_developments_concerns.md)*
-*For more information about responsible AI considerations, [`click here`](docs/responsible_ai_considerations.md)*
+*For more information about future developments and concerns, [`click here`](docs/future_developments_concerns.md).*
+
+*For more information about responsible AI considerations, [`click here`](docs/responsible_ai_considerations.md).*
 
 ---
 
