@@ -8,10 +8,10 @@
 
 | Name | GitHub |
 |------|--------|
-| *(Nathan Brewer)* | [`Gratedanate`](https://github.com/Gratedanate) |
-| *(Cade Haskins)* | [`Cade26-code`](https://github.com/Cade26-code) |
-| *(Pratham Reddy)* | [`PrathamReddy55`](https://github.com/PrathamReddy55) |
-| *(Morgan Wait)* | [`morganwait`](https://github.com/morganwait) |
+| *Nathan Brewer* | [`Gratedanate`](https://github.com/Gratedanate) |
+| *Cade Haskins* | [`Cade26-code`](https://github.com/Cade26-code) |
+| *Pratham Reddy* | [`PrathamReddy55`](https://github.com/PrathamReddy55) |
+| *Morgan Wait* | [`morganwait`](https://github.com/morganwait) |
 
 ---
 
@@ -20,7 +20,7 @@
 | Resource | Link |
 |----------|------|
 | 📓 Notebook (Google Colab) | [`Project Code`](https://colab.research.google.com/drive/1HjXrNkBwUZ1UVd5D6W5q9e3ZMZ2iHhJk?usp=sharing) |
-| 🌐 Interactive Web App | [`Stochastic Modeling with Pytorch Forecasting`](tp-2-pytorch-forecasting-team4.vercel.app) |
+| 🌐 Interactive Web App | [`Stochastic Modeling with Pytorch Forecasting`](https://tp-2-pytorch-forecasting-team4.vercel.app/results) |
 | 📊 Full Results CSV | [`docs/full_results.csv`](docs/full_results.csv) |
 
 ---
