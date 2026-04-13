@@ -20,7 +20,7 @@
 | Resource | Link |
 |----------|------|
 | 📓 Notebook (Google Colab) | [`Project Code`](https://colab.research.google.com/drive/1HjXrNkBwUZ1UVd5D6W5q9e3ZMZ2iHhJk?usp=sharing) |
-| 🌐 Interactive Web App | [`Stochastic Modeling with Pytorch Forecasting`](https://tp-2-pytorch-forecasting-team4.vercel.app/results) |
+| 🌐 Interactive Web App | [`Stochastic Modeling with Pytorch Forecasting`](https://tp-2-pytorch-forecasting-team4.vercel.app/) |
 | 📊 Full Results CSV | [`docs/full_results.csv`](docs/full_results.csv) |
 
 ---
@@ -90,9 +90,8 @@ This project benchmarks **six forecasting models** across **five datasets** and 
 
 3. **TFT's advantages are most evident on stable, low-volatility series.** TFT achieved its best results on PG (long: 1.71% MAPE) and XOM (short: 2.51% MAPE), but was the worst-performing model on BTC across all horizons (short: 17.37%, long: 42.92%). The added architectural complexity does not reliably translate to accuracy gains on high-volatility or short univariate series.
 
-4. **RNN underperforms consistently.** Vanilla RNN is dominated by both LSTM and GRU across all experiments, confirming that gated architectures effectively solve the vanishing gradient limitation. RNN should generally be avoided in production.
 
-5. **Data structure is the primary model selection criterion.** Practitioners should assess series *volatility*, *length*, and *available covariates* before selecting a model — not default to deep learning due to novelty.
+4. **Data structure is the primary model selection criterion.** Practitioners should assess series *volatility*, *length*, and *available covariates* before selecting a model — not default to deep learning due to novelty.
 
 
 *For more information about future developments and concerns, [`click here`](docs/future_developments_concerns.md).*

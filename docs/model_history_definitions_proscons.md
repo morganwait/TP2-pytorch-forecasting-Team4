@@ -18,7 +18,7 @@ This project contributes to that ongoing conversation by conducting a structured
 
 ## Model Definitions: ARIMA, RNN, LSTM, GRU, and TFT
 
-**ARIMA (AutoRegressive Integrated Moving Average):** This is a classical statistical model suitable for stationary data and assumes linear trends/seasonality. It is highly interpretable and requires less data but struggles with complex, non-linear patterns and long-term dependencies. (Box and Jenkins, 1970). We will use ARIMA as the Naïve Statistical Baseline.
+**ARIMA (AutoRegressive Integrated Moving Average):** This is a classical statistical model suitable for stationary data and assumes linear trends/seasonality. It is highly interpretable and requires less data but struggles with complex, non-linear patterns and long-term dependencies. (Box and Jenkins, 1970). We will use ARIMA as a Statistical Baseline.
 
 **RNN (Recurrent Neural Network):** The foundational sequence model. They use a simple recurrent connection where the hidden state at each time step is a function of the current input and the previous hidden state. Their primary limitation is the inability to effectively capture long-range dependencies because gradients can vanish or explode over many time steps. (Rumelhart et al., 1985).
 
